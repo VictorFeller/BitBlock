@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="homeView">
+    <h1>Bitblock - Home</h1>
+    <input
+      type="string"
+      v-model="address"
+      placeholder="Address Bsc (0x...)"
+      v-on:keypress.enter="searchAddress()"
+    />
+    <button v-on:click="searchAddress()">Search</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
+  name: "homeView",
+  methods: {
+    searchAddress() {
+      //Effectue la recherche
+    },
+    showWatchList() {
+      //Afficher la WatchList
+    },
   },
 };
 </script>
