@@ -8,14 +8,6 @@
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "login",
-  methods: {
-    searchAddress() {
-      //Effectue la recherche
-    },
-    showWatchList() {
-      //Afficher la WatchList
-    },
-  },
 };
 </script>
 

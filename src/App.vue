@@ -3,6 +3,7 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/watchList">Watch List</router-link> |
+      <router-link to="/addressDetails">AddressDetails</router-link>
       <router-link to="/login">Login</router-link>
     </nav>
     <router-view />

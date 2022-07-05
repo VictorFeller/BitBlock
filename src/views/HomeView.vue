@@ -7,16 +7,23 @@
       placeholder="Address Bsc (0x...)"
       v-on:keypress.enter="searchAddress()"
     />
-    <button v-on:click="searchAddress()">Search</button>
+    <button v-on:click="openDetailsAddress()">Search</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "homeView",
+  props: ["bscAddress"],
+  data() {
+    return {
+      message: "Hello Vue!",
+    };
+  },
   methods: {
-    searchAddress() {
-      //Effectue la recherche
+    openDetailsAddress() {
+      //Afficher les détails de l'adresse
+      window.location.href = "/login";
     },
     showWatchList() {
       //Afficher la WatchList
