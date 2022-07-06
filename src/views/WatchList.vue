@@ -32,7 +32,7 @@
     <div>
       <transition-group name="flip-list">
         <app-address
-          v-for="address in sortedWatchlist"
+          v-for="address in tabWatchList"
           v-bind:a="address"
           v-bind:key="address.id"
           v-on:remove="removeAddress(address)"
@@ -55,25 +55,25 @@ export default {
     };
   },
   computed: {
-    watchlist() {
-      return this.$root.watchlist;
+    tabWatchList() {
+      return this.$root.tabWatchList;
     },
     sortedWatchlist() {
       if (this.sortOrder === "top") {
-        const copy = this.watchlist.slice(0);
-        copy.sort((a, b) => {
-          return b.value - a.value;
+        const copyTabWatchList = this.tabWatchList.slice(0);
+        copyTabWatchList.sort((balanceA, balanceB) => {
+          return balanceB.value - balanceA.value;
         });
-        return copy;
+        return copyTabWatchList;
       }
-      return this.watchlist;
+      return this.tabWatchList;
     },
   },
   methods: {
-    removeAddress(a) {
-      const index = this.$root.watchlist.indexOf(a);
-      this.$root.watchlist.splice(index, 1)[0];
-      //this.save();
+    removeAddress(address) {
+      const index = this.tabWatchList.indexOf(address);
+      this.tabWatchList.splice(index, 1)[0];
+      this.$root.save();
     },
   },
   mounted() {

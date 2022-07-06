@@ -58,20 +58,20 @@ import { convertBalanceToBnB } from "../utils";
 import axios from "axios";
 
 const apiKey = "NEZNWWZRKRF54YSRV4Y961QA9GV4G53Y8S";
-const LOCALSTORAGE_WATCHLIST_KEY = "tabWatchListKey";
 
 export default {
   name: "homeView",
-  components: {
-    //tabWatchList: [],
-  },
   data() {
     return {
-      balance: undefined,
-      currentDollarPrice: undefined,
+      balance: 0,
+      currentDollarPrice: 0,
     };
   },
-  computed: {},
+  computed: {
+    tabWatchList() {
+      return this.$root.tabWatchList;
+    },
+  },
   methods: {
     //Get BNB Balance for a Single Address via API
     getAPIBnbBalance() {
@@ -94,6 +94,7 @@ export default {
             apiKey
         )
         .then((response) => {
+          console.log("tutu", response.data.result.ethusd);
           this.currentDollarPrice = response.data.result.ethusd;
         });
     },
@@ -102,25 +103,15 @@ export default {
         value: this.balance,
         id: this.$route.params.hash,
       });
-      this.save();
-    },
-    saveLocalStorage() {
-      //Store data local storage
-      localStorage.setItem(
-        LOCALSTORAGE_WATCHLIST_KEY,
-        JSON.stringify(this.tabWatchList)
-      );
+      this.$root.save();
+      this.$router.push({
+        name: "watchList",
+      });
     },
   },
   mounted() {
-    // or mounted
     this.getAPIBnbBalance();
     this.getAPIBnbUSDPrice();
-
-    const json = localStorage.getItem(LOCALSTORAGE_WATCHLIST_KEY);
-    if (json) {
-      this.tabWatchList = JSON.parse(json);
-    }
   },
 };
 </script>
