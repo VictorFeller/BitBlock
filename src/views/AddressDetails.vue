@@ -6,7 +6,7 @@
           <p>Adresse: {{ $route.params.hash }}</p>
         </div>
         <div class="col-md-6 text-end">
-          <!-- <button>Add to WatchList</button> -->
+          <!--<button>Add to WatchList</button>-->
           <i class="fa-regular fa-star"></i>
         </div>
       </div>
