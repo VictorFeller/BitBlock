@@ -94,7 +94,6 @@ export default {
             apiKey
         )
         .then((response) => {
-          console.log("tutu", response.data.result.ethusd);
           this.currentDollarPrice = response.data.result.ethusd;
         });
     },
