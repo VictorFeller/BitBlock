@@ -1,15 +1,26 @@
 <template>
   <div id="homeView">
-    <h1>Bitblock - Home</h1>
-    <input
-      type="string"
-      v-model="bscAddress"
-      placeholder="Address Bsc (0x...)"
-      v-on:keypress.enter="openDetailsAddress()"
-    />
-    <button v-on:click="openDetailsAddress()" v-bind:disabled="!this.canSearch">
-      Search
-    </button>
+    <h1>BitBlock</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <input
+            type="string"
+            v-model="bscAddress"
+            placeholder="Enter a BSC address (0x...)"
+            v-on:keypress.enter="openDetailsAddress()"
+          />
+        </div>
+        <div class="col">
+          <button
+            v-on:click="openDetailsAddress()"
+            v-bind:disabled="!this.canSearch"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,3 +54,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+input {
+  width: 350px;
+}
+div {
+  margin: 10px;
+}
+</style>
