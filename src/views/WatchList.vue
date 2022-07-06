@@ -71,9 +71,9 @@ export default {
   },
   methods: {
     removeAddress(a) {
-      const index = this.history.indexOf(a);
-      this.history.splice(index, 1)[0];
-      this.save();
+      const index = this.$root.watchlist.indexOf(a);
+      this.$root.watchlist.splice(index, 1)[0];
+      //this.save();
     },
   },
 };
