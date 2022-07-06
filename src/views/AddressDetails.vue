@@ -1,10 +1,10 @@
 <template>
   <div id="addressDetails">
-    <h1 v-bind:to="'/homeView/${bscAddress}'">address:</h1>
-    <h1 v-bind:bscAddress="message">hi</h1>
+    <h1>Adresse</h1>
+    <h1 v-bind="bscAddress">{{ bscAddress }}</h1>
+    <!-- <h1 v-on:add="bscAddress">{{ bscAddress.value }}</h1> -->
     <p>Balance</p>
     <p>List des transactions</p>
-    <button v-on:click="loadBnbBalance()">loadBnbBalance</button>
   </div>
 </template>
 
@@ -17,6 +17,7 @@ const tmpAddress = "0x8cb87f84814e05e17c609f96978556698dfea578";
 
 export default {
   name: "homeView",
+  props: ["bscAddress"],
   methods: {
     loadBnbBalance() {
       axios
