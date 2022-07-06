@@ -15,6 +15,9 @@
         <p class="green" v-if="a.value < balance">{{ balance }} BNB</p>
       </div>
       <div class="col-md-1">
+        <button v-on:click="replaceOldBalance()">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
         <button v-on:click="removeMe()">x</button>
       </div>
     </div>
@@ -63,8 +66,9 @@ export default {
         params: {},
       });
     },
-    refreshMe() {
-      this.getAPIBnbBalance();
+    replaceOldBalance() {
+      //this.a.value = this.balance;
+      this.$emit("refresh");
     },
   },
 };

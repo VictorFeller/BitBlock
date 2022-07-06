@@ -35,13 +35,13 @@
         </div>
       </div>
     </div>
-    <div class="container"></div>
     <div>
       <transition-group name="flip-list">
         <app-address
           v-for="address in sortedWatchlist"
           v-bind:a="address"
           v-bind:key="address.id"
+          v-on:refresh="refreshPage()"
           v-on:remove="removeAddress(address)"
         ></app-address>
       </transition-group>
