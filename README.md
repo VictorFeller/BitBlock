@@ -42,10 +42,7 @@ openDetailsAddress() {
   - Le cours n'aurait pas dû être en cours bloc malheureusement, nous aurions mieux appris et retenu  avec des cours tout le long du semestre
 - Séparation de méthodes dans un fichier utils.js
   - L'appel de ces différentes méthodes ne retournait rien
-
-```
-Solution
-```
+  - La solution a été de remettre toutes les méthodes appelant une API dans les différents fichiers .vue
 
 ## Ce qui a fonctionné
 
