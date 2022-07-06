@@ -18,17 +18,20 @@
           </label>
         </div>
       </div>
-    </div>
-    <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <h3>Address (BSC)</h3>
         </div>
-        <div class="col-md-6">
-          <h3>Balance (BNB)</h3>
+        <div class="col-md-3">
+          <h3>Old balance</h3>
         </div>
+        <div class="col-md-3">
+          <h3>Current balance</h3>
+        </div>
+        <div class="col-md-3"></div>
       </div>
     </div>
+    <div class="container"></div>
     <div>
       <transition-group name="flip-list">
         <app-address
@@ -75,10 +78,6 @@ export default {
       this.tabWatchList.splice(index, 1)[0];
       this.$root.save();
     },
-  },
-  mounted() {
-    //Get items from local storage
-    //const json = localStorage.getItem(LOCALSTORAGE_HISTORY_KEY);
   },
 };
 </script>
