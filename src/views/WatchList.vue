@@ -76,6 +76,10 @@ export default {
       this.save();
     },
   },
+  mounted() {
+    //Get items from local storage
+    //const json = localStorage.getItem(LOCALSTORAGE_HISTORY_KEY);
+  },
 };
 </script>
 

@@ -6,8 +6,9 @@
           <p>Adresse: {{ $route.params.hash }}</p>
         </div>
         <div class="col-md-6 text-end">
-          <!--<button>Add to WatchList</button>-->
-          <i class="fa-regular fa-star"></i>
+          <button v-on:click="addToWatchList()">
+            <i class="fa-regular fa-star"></i>
+          </button>
         </div>
       </div>
       <div class="row border">
@@ -57,9 +58,13 @@ import { convertBalanceToBnB } from "../utils";
 import axios from "axios";
 
 const apiKey = "NEZNWWZRKRF54YSRV4Y961QA9GV4G53Y8S";
+const LOCALSTORAGE_WATCHLIST_KEY = "tabWatchListKey";
 
 export default {
   name: "homeView",
+  components: {
+    //tabWatchList: [],
+  },
   data() {
     return {
       balance: undefined,
@@ -92,11 +97,30 @@ export default {
           this.currentDollarPrice = response.data.result.ethusd;
         });
     },
+    addToWatchList() {
+      this.tabWatchList.push({
+        value: this.balance,
+        id: this.$route.params.hash,
+      });
+      this.save();
+    },
+    saveLocalStorage() {
+      //Store data local storage
+      localStorage.setItem(
+        LOCALSTORAGE_WATCHLIST_KEY,
+        JSON.stringify(this.tabWatchList)
+      );
+    },
   },
   mounted() {
     // or mounted
     this.getAPIBnbBalance();
     this.getAPIBnbUSDPrice();
+
+    const json = localStorage.getItem(LOCALSTORAGE_WATCHLIST_KEY);
+    if (json) {
+      this.tabWatchList = JSON.parse(json);
+    }
   },
 };
 </script>
