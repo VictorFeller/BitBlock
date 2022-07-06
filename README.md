@@ -2,12 +2,11 @@
 
 ## To-Do
 
-1. localStorage
-2. Trier watch list selon balance ou récent
-3. Mise en page
-4. Description du projet
-5. Schéma du projet
-6. Documentation
+1. Mise en page
+2. Thème
+3. Description du projet
+4. Schéma du projet
+5. Documentation
 
 ## Problèmes rencontrés
 
@@ -43,6 +42,10 @@ openDetailsAddress() {
 - Séparation de méthodes dans un fichier utils.js
   - L'appel de ces différentes méthodes ne retournait rien
   - La solution a été de remettre toutes les méthodes appelant une API dans les différents fichiers .vue
+- Problème avec le naviguateur Brave qui n'effectue pas correctement une opération mathématique (ok sur Chrome et Firefox)
+- Problème pour refresh la nouvelle balacne dans la watchlist
+  - Essayer des choses au pif et waaattttt ça marche
+
 
 ## Ce qui a fonctionné
 
@@ -59,6 +62,16 @@ openDetailsAddress() {
 - Nécessité de s'assurer à 100% que le projet est réalisable avant de se lancer dans les croquis et le code
 - Le code review régulier entre nous a permis d'optimiser l'application
 - Importance de se fier à une documentation officielle et non sur des forums
+
+## Améliorations à réaliser
+
+- Gestion de l'unicité des adresses au sein de la page watch list
+- Mise en place du plugin firebase
+- Ajout d'un bouton "Remplacer" afin de remplacer l'ancienne balance par la nouvelle
+- Changer le comportement du bouton "Refresh" et la méthode refreshPage()
+  - Ne pas reload la page mais plutôt le content
+- Current balance s'affichant parfois vide (à voir avec l'API?)
+- Sauvegarder les anciennes balances dans localStorage quand elles sont remplacées par de nouvelles
 
 ## Outils utilisés
 
@@ -90,3 +103,4 @@ openDetailsAddress() {
 - Grid system Bootstrap - https://getbootstrap.com/docs/4.0/layout/grid/
 - BscScan Accounts API - https://docs.bscscan.com/api-endpoints/accounts
 - BscScan Stats API - https://docs.bscscan.com/api-endpoints/stats-1
+
