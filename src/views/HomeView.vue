@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 input {
-  width: 350px;
+  width: 500px;
 }
 ::-webkit-input-placeholder {
   text-align: center;

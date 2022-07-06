@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <router-link v-bind:to="`/addressDetails/${a.id}`">{{
           a.id
         }}</router-link>
@@ -14,10 +14,7 @@
         <p v-if="a.value === balance">{{ balance }} BNB</p>
         <p class="green" v-if="a.value < balance">{{ balance }} BNB</p>
       </div>
-      <div class="col-md-2">
-        <button v-on:click="refreshMe()">
-          <i class="fa fa-refresh" aria-hidden="true"></i>
-        </button>
+      <div class="col-md-1">
         <button v-on:click="removeMe()">x</button>
       </div>
     </div>
@@ -34,6 +31,7 @@ export default {
   name: "AppAddress",
   data() {
     return {
+      // Current balance s'affichant parfois vide - cf. readme.md
       balance: this.getAPIBnbBalance(),
     };
   },
