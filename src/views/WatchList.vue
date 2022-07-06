@@ -2,6 +2,25 @@
   <div id="watchList">
     <div class="container">
       <div class="row">
+        <div class="col">
+          <label>
+            Recents adds
+            <input
+              type="radio"
+              value="recent"
+              name="sort"
+              v-model="sortOrder"
+            />
+          </label>
+          <label>
+            Amount of BNB
+            <input type="radio" value="top" name="sort" v-model="sortOrder" />
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
         <div class="col-md-6">
           <h3>Address (BSC)</h3>
         </div>
@@ -35,4 +54,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+label {
+  margin: 10px;
+}
+</style>
