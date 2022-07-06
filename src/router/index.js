@@ -18,7 +18,7 @@ const routes = [
     component: WatchList,
   },
   {
-    path: "/addressDetails",
+    path: "/addressDetails/:hash",
     name: "addressDetails",
     component: AddressDetails,
   },

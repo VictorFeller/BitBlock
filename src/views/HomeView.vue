@@ -7,9 +7,9 @@
       placeholder="Address Bsc (0x...)"
       v-on:keypress.enter="openDetailsAddress()"
     />
-    <router-link v-bind:to="'/addressDetails'"
-      ><button v-on:click="openDetailsAddress()">Search</button></router-link
-    >
+    <button v-on:click="openDetailsAddress()" v-bind:disabled="!this.canSearch">
+      Search
+    </button>
   </div>
 </template>
 
@@ -18,19 +18,27 @@ export default {
   name: "homeView",
   data() {
     return {
-      bscAddress: "1234",
+      bscAddress: undefined,
     };
+  },
+  computed: {
+    canSearch() {
+      //TODO: Vérifie pattern adresse du type 0x....
+      const bscAddress = this.bscAddress;
+      return !(bscAddress === undefined);
+    },
   },
   methods: {
     openDetailsAddress() {
-      //Afficher les détails de l'adresse
-      const bscAddress = this.bscAddress;
-      this.$emit("add", bscAddress);
-      //this.bscAddress = undefined;
-      //window.location.href = "#/addressDetails";
-    },
-    showWatchList() {
-      //Afficher la WatchList
+      if (this.canSearch) {
+        //Afficher les détails de l'adresse
+        //const bscAddress = this.bscAddress;
+        //this.$emit("add", bscAddress);
+        this.$router.push({
+          name: "addressDetails",
+          params: { hash: this.bscAddress },
+        });
+      }
     },
   },
 };
