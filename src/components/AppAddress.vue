@@ -11,6 +11,7 @@
         <p v-bind:to="tabWatchList">{{ a.value }} BNB</p>
       </div>
       <div class="col-md-3">
+        <!-- New balance displayed in a certain color according to the balance change -->
         <p class="red" v-if="a.value > balance">{{ balance }} BNB</p>
         <p v-if="a.value === balance">{{ balance }} BNB</p>
         <p class="green" v-if="a.value < balance">{{ balance }} BNB</p>
@@ -55,14 +56,9 @@ export default {
           this.balance = convertBalanceToBnB(response.data.result);
         });
     },
+    //Call the removeAddress() method from the parent (WatchList.vue)
     removeMe() {
       this.$emit("remove");
-    },
-    openDetailsAddress() {
-      this.$router.push({
-        name: "addressDetails",
-        params: {},
-      });
     },
   },
 };

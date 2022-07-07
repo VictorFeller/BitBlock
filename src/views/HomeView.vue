@@ -6,7 +6,7 @@
           <img
             class="fit-picture"
             src="../assets/BNB-logo.png"
-            alt="Grapefruit"
+            alt="BitBlockLogo"
           />
         </div>
       </div>
@@ -52,7 +52,6 @@ export default {
   },
   computed: {
     canSearch() {
-      //TODO: Vérifie pattern adresse du type 0x....
       const bscAddress = this.bscAddress;
       return !(bscAddress === undefined);
     },
@@ -60,7 +59,7 @@ export default {
   methods: {
     openDetailsAddress() {
       if (this.canSearch) {
-        //Afficher les détails de l'adresse
+        //Redirect to the address details page
         this.$router.push({
           name: "addressDetails",
           params: { hash: this.bscAddress },

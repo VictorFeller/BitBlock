@@ -66,9 +66,10 @@ export default {
     tabWatchList() {
       return this.$root.tabWatchList;
     },
+    //Sort the watchlist by old balance (recent adds or amount of BNB)
     sortedWatchlist() {
       if (this.sortOrder === "top") {
-        const copy = this.tabWatchList.slice(0);
+        const copy = this.tabWatchList.slice(0); //Create a copy of the current watchlist
         copy.sort((a, b) => {
           return b.value - a.value;
         });
@@ -78,10 +79,11 @@ export default {
     },
   },
   methods: {
+    //Remove address from the localStorage which involves disappearing in the watchlist page
     removeAddress(address) {
       const index = this.tabWatchList.indexOf(address);
       this.tabWatchList.splice(index, 1)[0];
-      this.$root.save();
+      this.$root.save(); //Call save() method in the main.js
     },
     refreshPage() {
       window.location.reload();

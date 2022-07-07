@@ -26,6 +26,7 @@
           </p>
         </div>
       </div>
+      <!--Data for the example (to be implemented)-->
       <div class="row">
         <div class="col text-start">
           <h3>Transactions <i>(examples)</i> :</h3>
@@ -111,6 +112,7 @@ export default {
           this.currentDollarPrice = response.data.result.ethusd;
         });
     },
+    //Add address to the watchlist and redirect to the watchlist page
     addToWatchList() {
       this.tabWatchList.push({
         value: this.balance,
