@@ -1,16 +1,42 @@
 <template>
-  <div id="homeView">
-    <h1>BitBlock</h1>
-    <input
-      type="string"
-      v-model="bscAddress"
-      placeholder="Enter a BSC address (0x...)"
-      just
-      v-on:keypress.enter="openDetailsAddress()"
-    />
-    <button v-on:click="openDetailsAddress()" v-bind:disabled="!this.canSearch">
-      Search
-    </button>
+  <div class="container" id="homeView">
+    <div class="container-md">
+      <div class="row">
+        <div class="col">
+          <h1>
+            BitBlock
+            <img
+              class="fit-picture"
+              src="../images/BNB-logo.png"
+              alt="Grapefruit"
+            />
+          </h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <input
+            type="string"
+            v-model="bscAddress"
+            placeholder="Enter a BSC address (0x...)"
+            just
+            v-on:keypress.enter="openDetailsAddress()"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" id="searchButton">
+          <button
+            v-on:click="openDetailsAddress()"
+            v-bind:disabled="!this.canSearch"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,8 +59,6 @@ export default {
     openDetailsAddress() {
       if (this.canSearch) {
         //Afficher les détails de l'adresse
-        //const bscAddress = this.bscAddress;
-        //this.$emit("add", bscAddress);
         this.$router.push({
           name: "addressDetails",
           params: { hash: this.bscAddress },
@@ -47,9 +71,26 @@ export default {
 
 <style scoped>
 input {
-  width: 500px;
+  width: 40vw;
 }
 ::-webkit-input-placeholder {
   text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+#searchButton {
+  margin-top: 5px;
+}
+h1 {
+  font-size: 5vw;
+}
+img {
+  width: 10vw;
 }
 </style>
