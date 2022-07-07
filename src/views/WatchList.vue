@@ -3,6 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
+          Sort old balance by :
           <label>
             Recents adds
             <input

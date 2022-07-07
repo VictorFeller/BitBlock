@@ -2,11 +2,10 @@
 
 ## To-Do
 
-1. Mise en page
-2. Thème
-3. Description du projet
-4. Schéma du projet
-5. Documentation
+1. Description du projet
+2. Schéma du projet
+3. Documentation
+4. Derniers peaufinements (commentaires, console.log(), ...)
 
 ## Problèmes rencontrés
 
@@ -67,7 +66,7 @@ openDetailsAddress() {
 
 - Gestion de l'unicité des adresses au sein de la page watch list
 - Mise en place du plugin firebase
-- Ajout d'un bouton "Remplacer" afin de remplacer l'ancienne balance par la nouvelle
+- Ajout d'un bouton "Remplacer" afin de remplacer les anciennes balances par les nouvelles
 - Changer le comportement du bouton "Refresh" et la méthode refreshPage()
   - Ne pas reload la page mais plutôt le content
 - Current balance s'affichant parfois vide (à voir avec l'API?)
