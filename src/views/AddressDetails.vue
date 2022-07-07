@@ -2,51 +2,65 @@
   <div id="addressDetails">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 text-start">
-          <p>Adresse: {{ $route.params.hash }}</p>
+        <div class="col-md-11 text-start">
+          <h3>Adresse {{ $route.params.hash }} :</h3>
         </div>
-        <div class="col-md-6 text-end">
+        <div class="col-md-1 text-end">
           <button v-on:click="addToWatchList()">
             <i class="fa-regular fa-star"></i>
           </button>
         </div>
       </div>
-      <div class="row border">
-        <div class="col-md-12 text-start">
-          <p>Overview:</p>
-        </div>
-      </div>
-      <div class="row border">
+      <div class="row">
         <div class="col-md-6 text-start">
-          <p>Balance: {{ balance }}</p>
+          <p>Balance : {{ balance }} BNB</p>
         </div>
         <div class="col-md-6 text-end">
           <p>
-            BNB Value:
+            BNB Value :
             {{
               /* BNB value in $ is equals to: address value * current USD price */
               Math.floor(balance * currentDollarPrice)
-            }}$
+            }}
+            $
           </p>
         </div>
       </div>
-      <div class="row border">
-        <div class="col-md-12 text-start">
-          <p>Transactions.....</p>
+      <div class="row">
+        <div class="col text-start">
+          <h3>Transactions : <i>(à titre d'exemple)</i></h3>
         </div>
       </div>
-      <div class="row border">
-        <div class="col-md-3 text-start">
-          <p>Hash</p>
+      <div class="row">
+        <div class="col-md-7 text-start">
+          <p><b>Hash</b></p>
+          <p>
+            0xc55f5999ae2c46dc76e4678c4518d4d061dc5bf1af2059ff876eb643560280ec
+          </p>
+          <p>
+            0x79bcb25c0095a925ecc98f80cfb0d59c4b9e29a15cdcb1febfcdfb0b414b158e
+          </p>
+          <p>
+            0xda950181916e3b2f9db163419196b152a3f377bed57ec48682e87df8cbba7141
+          </p>
         </div>
-        <div class="col-md-3 text-start">
-          <p>Block</p>
+        <div class="col-md-2 text-start">
+          <p><b>Block</b></p>
+          <p>19338015</p>
+          <p>19146782</p>
+          <p>18946575</p>
         </div>
-        <div class="col-md-3 text-start">
-          <p>Value</p>
+        <div class="col-md-2 text-start">
+          <p><b>Value</b></p>
+          <p>0.04 BNB</p>
+          <p>1.45 BNB</p>
+          <p>0.87 BNB</p>
         </div>
-        <div class="col-md-3 text-start">
-          <p>In/Out</p>
+        <div class="col-md-1 text-start">
+          <p><b>In/Out</b></p>
+          <p>Out</p>
+          <p>In</p>
+          <p>Out</p>
         </div>
       </div>
     </div>
