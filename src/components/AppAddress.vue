@@ -76,9 +76,9 @@ export default {
 
 <style scoped>
 .red {
-  color: rgb(240, 0, 0);
+  color: #e95420;
 }
 .green {
-  color: rgb(0, 255, 0);
+  color: #27d8b0;
 }
 </style>
