@@ -16,9 +16,6 @@
         <p class="green" v-if="a.value < balance">{{ balance }} BNB</p>
       </div>
       <div class="col-md-1">
-        <button v-on:click="replaceOldBalance()">
-          <i class="fa-solid fa-floppy-disk"></i>
-        </button>
         <button v-on:click="removeMe()">x</button>
       </div>
     </div>
@@ -46,29 +43,6 @@ export default {
     },
   },
   methods: {
-    updateBalanceByAdd(address) {
-      axios
-        .get(
-          "https://api.bscscan.com/api?module=account&action=balance&address=" +
-            address +
-            "&apikey=" +
-            apiKey
-        )
-        .then((response) => {
-          return convertBalanceToBnB(response.data.result); //On obtient bien la réponse de l'API
-        });
-    },
-    replaceOldBalance() {
-      /*console.log(this.tabWatchList[0].id);
-      const copyTab = this.tabWatchList.slice(0);
-      for (let index = 0; index < copyTab.length; index++) {
-        //Cet appel ne marche pas ! --> undefined
-        let tmp = this.updateBalanceByAdd(copyTab[index].id);
-        console.log("tmp" + tmp);
-        copyTab[index].value = tmp;
-        localS torage.setItem("tabWatchListKey", copyTab);
-      }*/
-    },
     getAPIBnbBalance() {
       axios
         .get(
