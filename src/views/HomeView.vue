@@ -3,14 +3,16 @@
     <div class="container-md">
       <div class="row">
         <div class="col">
-          <h1>
-            BitBlock
-            <img
-              class="fit-picture"
-              src="../images/BNB-logo.png"
-              alt="Grapefruit"
-            />
-          </h1>
+          <img
+            class="fit-picture"
+            src="../images/BNB-logo.png"
+            alt="Grapefruit"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+          <h1>BitBlock</h1>
         </div>
       </div>
 
