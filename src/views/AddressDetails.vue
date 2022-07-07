@@ -28,7 +28,7 @@
       </div>
       <div class="row">
         <div class="col text-start">
-          <h3>Transactions : <i>(à titre d'exemple)</i></h3>
+          <h3>Transactions <i>(examples)</i> :</h3>
         </div>
       </div>
       <div class="row">
