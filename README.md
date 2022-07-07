@@ -17,6 +17,31 @@ La page watch list propose les possibilités suivantes :
 - Pour chaque adresse, affiche la balance actuelle et change de couleur en fonction du gain ou de la perte de BNB
 - Trier les adresses par ordre d'ajout (du plus récent au plus ancien) dans le watch list ou en fonction du nombre de BNB détenus (de la plus grande balance à la plus petite)
 
+## Architecture
+
+- App.vue
+  - Page de base qui est instanciée par le main.js lorsqu'on arrive sur l'application
+  - Cette page gère également les boutons de navigation du site web
+  - Le contenu de App.vue se retrouve également sur les autres pages
+  - Appel d'une API permettant d'afficher le prix du BNB sur toutes les pages
+- HomeView.vue
+  - Page d'accueil de notre site web
+  - Permet de rediriger grâce à une méthode vers une page donnant les détails sur une adresse que l'on recherche
+  - L'adresse est passée en paramètre lors de la redirection vers AddressDetails.vue via un router
+- AddressDetails.vue
+  - Page offrant quelques détails pour une adresse BSC
+    - Balance BNB grâce à un appel d'API
+    - Valeur en dollars du portefeuille, par rapport au nombre de BNB détenus grâce à une méthode  multipliant le balance au prix actuel du BNB obtenu par un appel d'une API
+  - L'appel vers cette page se réalise depuis la page d'accueil (méthode openDetailsAddress()) ou bien depuis le component AppAddress (router-link)
+  - Cette page permet également le stockage en localStorage (id, value) de l'adresse et de sa balance BNB à l'instant où le bouton est actionné grâce à la méthode addToWatchList()
+    - Balance et valeur sont stockés dans un tableau, lui même contenu dans la value du localStorage
+  - À l'avenir, toutes les transactions de l'adresse BSC demandée seront affichées grâce à l'appel d'une API payante
+- WatchList.vue et component AppAddress.vue
+  - Affichage de toutes les adresses et de leur balance respective, ayant été stockées dans le localStorage
+  - Le component AppAddress.vue est appelé depuis WatchList.vue grâce à un v-for parcourant toutes les adresses ayant été enregistrées
+  - Affichage de la balance actuelle grâce à l'appel d'une API et changement de couleur en fonction du gain ou perte de BNB par rapport à la valeur stockée
+  - Dans le component AppAddress, il est également possible de supprimer toute adresse enregistrée dans le localStorage grâce à un bouton appelant une méthode au niveau parent -> this.$emit("remove");
+
 ## Problèmes rencontrés
 
 - Durée pour recevoir une clé API depuis le site blockchain.com
