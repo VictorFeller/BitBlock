@@ -5,7 +5,7 @@
         <div class="col">
           <img
             class="fit-picture"
-            src="../images/BNB-logo.png"
+            src="../assets/BNB-logo.png"
             alt="Grapefruit"
           />
         </div>
