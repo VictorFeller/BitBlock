@@ -2,34 +2,52 @@
   <div id="watchList">
     <div class="container">
       <div class="row">
-        <div class="col">
-          Sort old balance by :
-          <label>
-            Recents adds
-            <input
-              type="radio"
-              value="recent"
-              name="sort"
-              v-model="sortOrder"
-            />
-          </label>
-          <label>
-            Amount of BNB
-            <input type="radio" value="top" name="sort" v-model="sortOrder" />
-          </label>
+        <div class="col text-start">
+          <p>Sort old balance by :</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-5">
+        <div class="col text-start">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="recent"
+              name="sort"
+              id="flexRadioDefault2"
+              v-model="sortOrder"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Recents adds
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="top"
+              name="sort"
+              id="flexRadioDefault1"
+              v-model="sortOrder"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Amount of BNB
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 text-start">
           <h3>Address (BSC)</h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 text-start">
           <h3>Old balance</h3>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 text-start">
           <h3>Current balance</h3>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 text-start">
           <button v-on:click="refreshPage()">
             <i class="fa fa-refresh" aria-hidden="true"></i>
           </button>
@@ -98,5 +116,8 @@ label {
 }
 .flip-list-move {
   transition: transform 0.5s;
+}
+input.class-from-check {
+  margin: 0px;
 }
 </style>

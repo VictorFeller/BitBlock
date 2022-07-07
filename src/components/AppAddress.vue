@@ -1,23 +1,25 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-5 text-start">
         <router-link v-bind:to="`/addressDetails/${a.id}`">{{
           a.id
         }}</router-link>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 text-start">
         <!-- Old balance-->
         <p v-bind:to="tabWatchList">{{ a.value }} BNB</p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 text-start">
         <!-- New balance displayed in a certain color according to the balance change -->
         <p class="red" v-if="a.value > balance">{{ balance }} BNB</p>
         <p v-if="a.value === balance">{{ balance }} BNB</p>
         <p class="green" v-if="a.value < balance">{{ balance }} BNB</p>
       </div>
-      <div class="col-md-1">
-        <button v-on:click="removeMe()">x</button>
+      <div class="col-md-1 text-start">
+        <button v-on:click="removeMe()">
+          <i class="fa-solid fa-trash"></i>
+        </button>
       </div>
     </div>
   </div>

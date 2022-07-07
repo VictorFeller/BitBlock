@@ -9,4 +9,10 @@ label {
   p {
     margin-bottom: 25px;
   }
+
+  button {
+    color: #e95420;
+    background-color: transparent;
+    border-radius: 5px;
+  }
   
