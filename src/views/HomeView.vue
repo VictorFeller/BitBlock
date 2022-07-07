@@ -17,25 +17,25 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="input-group-md-12">
           <input
+            class="form-control-md-12"
             type="string"
             v-model="bscAddress"
             placeholder="Enter a BSC address (0x...)"
             just
             v-on:keypress.enter="openDetailsAddress()"
           />
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col" id="searchButton">
-          <button
-            v-on:click="openDetailsAddress()"
-            v-bind:disabled="!this.canSearch"
-          >
-            Search
-          </button>
+          <div class="input-group-append" id="searchButton">
+            <button
+              class="btn btn-light"
+              v-on:click="openDetailsAddress()"
+              v-bind:disabled="!this.canSearch"
+            >
+              Search
+            </button>
+          </div>
         </div>
       </div>
     </div>
