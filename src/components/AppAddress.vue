@@ -7,6 +7,7 @@
         }}</router-link>
       </div>
       <div class="col-md-3">
+        <!-- Old balance-->
         <p v-bind:to="tabWatchList">{{ a.value }} BNB</p>
       </div>
       <div class="col-md-3">
@@ -45,6 +46,29 @@ export default {
     },
   },
   methods: {
+    updateBalanceByAdd(address) {
+      axios
+        .get(
+          "https://api.bscscan.com/api?module=account&action=balance&address=" +
+            address +
+            "&apikey=" +
+            apiKey
+        )
+        .then((response) => {
+          return convertBalanceToBnB(response.data.result); //On obtient bien la réponse de l'API
+        });
+    },
+    replaceOldBalance() {
+      /*console.log(this.tabWatchList[0].id);
+      const copyTab = this.tabWatchList.slice(0);
+      for (let index = 0; index < copyTab.length; index++) {
+        //Cet appel ne marche pas ! --> undefined
+        let tmp = this.updateBalanceByAdd(copyTab[index].id);
+        console.log("tmp" + tmp);
+        copyTab[index].value = tmp;
+        localS torage.setItem("tabWatchListKey", copyTab);
+      }*/
+    },
     getAPIBnbBalance() {
       axios
         .get(
@@ -65,10 +89,6 @@ export default {
         name: "addressDetails",
         params: {},
       });
-    },
-    replaceOldBalance() {
-      //this.a.value = this.balance;
-      this.$emit("refresh");
     },
   },
 };
