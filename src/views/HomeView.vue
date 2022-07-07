@@ -90,9 +90,9 @@ input {
   margin-top: 5px;
 }
 h1 {
-  font-size: 5vw;
+  font-size: 4vw;
 }
 img {
-  width: 10vw;
+  width: 9vw;
 }
 </style>
