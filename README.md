@@ -1,17 +1,27 @@
 # BitBlock
 
-## To-Do
+Passionnés de la technologie blockchain et du concept de Web3, nous avons souhaité créer une application permettant de réaliser des recherches d'adresses basées sur la Binance Smart Chain (BSC) afin d'obtenir diverses informations sur ces dernières.
 
-1. Description du projet
-2. Schéma du projet
-3. Documentation
-4. Derniers peaufinements (commentaires, console.log(), ...)
+Dès lors qu'une recherche d'adresse BSC est effectuée, une nouvelle page s'ouvre afin d'afficher les informations suivantes grâce aux appels d'API :
+
+- Balance en BNB du portefeuille
+- Valeur en dollars du portefeuille, par rapport au nombre de BNB détenus
+- (*En développement*) Toutes les transactions effectuées par cette adresse
+
+Il est également possible d'ajouter l'adresse dans une watch list afin de pouvoir réanalyser ces informations plus tard. Lorsque le bouton "⭐️" est actionné, le hash de l'adresse ainsi que sa balance à l'instant T seront sauvegardés dans le localStorage.
+
+La page watch list propose les possibilités suivantes :
+
+- Affiche toutes les adresses qui ont été enregistrées au préalable
+- Pour chaque adresse, affiche la balance de l'adresse au moment de l'ajout dans la watch list
+- Pour chaque adresse, affiche la balance actuelle et change de couleur en fonction du gain ou de la perte de BNB
+- Trier les adresses par ordre d'ajout (du plus récent au plus ancien) dans le watch list ou en fonction du nombre de BNB détenus (de la plus grande balance à la plus petite)
 
 ## Problèmes rencontrés
 
 - Durée pour recevoir une clé API depuis le site blockchain.com
   - Les demandes sont examinées dans un délai de 2 à 3 jours ouvrables
-  - Nous avons donc dû repenser notre projet durant la journée du mardi 5 juillet et avons perdu du temps très précieux
+  - Nous avons donc dû repenser notre projet et avons perdu du temps très précieux
 - Transmission entre deux pages d'une valeur insérée dans une balise HTML input
 
 ```javascript
@@ -37,12 +47,11 @@ openDetailsAddress() {
 ```
 
 - Inexpérience dans Vue.js
-  - Le cours n'aurait pas dû être en cours bloc malheureusement, nous aurions mieux appris et retenu  avec des cours tout le long du semestre
+  - Le cours n'aurait pas dû être en cours bloc, nous aurions mieux appris et retenu  avec des cours répartis tout le long du semestre
 - Séparation de méthodes dans un fichier utils.js
   - L'appel de ces différentes méthodes ne retournait rien
   - La solution a été de remettre toutes les méthodes appelant une API dans les différents fichiers .vue
-- Problème avec le naviguateur Brave qui n'effectue pas correctement une opération mathématique (ok sur Chrome et Firefox)
-- Problème pour refresh la nouvelle balacne dans la watchlist
+- Problème pour refresh la nouvelle balance dans la watchlist
   - Essayer des choses au pif et waaattttt ça marche
 
 
@@ -65,23 +74,25 @@ openDetailsAddress() {
 ## Améliorations à réaliser
 
 - Gestion de l'unicité des adresses au sein de la page watch list
+- Création d'un pattern lié au format des adresses BSC pour la méthode canSearch() de la page d'accueil
 - Mise en place du plugin firebase
-- Ajout d'un bouton "Remplacer" afin de remplacer les anciennes balances par les nouvelles
-- Changer le comportement du bouton "Refresh" et la méthode refreshPage()
+- Changer le comportement du bouton "Refresh" et la méthode refreshPage() dans la page watch list
   - Ne pas reload la page mais plutôt le content
 - Current balance s'affichant parfois vide (à voir avec l'API?)
-- Sauvegarder les anciennes balances dans localStorage quand elles sont remplacées par de nouvelles
+- Ajout d'un bouton "Remplacer" afin de remplacer les anciennes balances par les nouvelles
+- Sauvegarder les anciennes balances dans un nouveau tableau dans le localStorage quand elles sont remplacées par de nouvelles
+- Afficher toutes les transactions d'une adresse lors qu'on est sur la page AddressDetails.vue
 
 ## Outils utilisés
 
 - Visual Studio Code
 - Nouveau Terminal Windows
 - PowerShell
-- Navigateurs (Brave, Firefox, Safari)
+- Navigateurs (Chrome, Firefox)
 - Bootstrap
   - Collection d'outils pour le design du site web
-- Grid system
-  - Outils de Bootstrap permettant de rendre le site web full responsive
+  - Grid system
+    - Outils de Bootstrap permettant de rendre le site web full responsive
 - Git
   - Logiciel de gestion de versions
 - GitHub
@@ -96,8 +107,9 @@ openDetailsAddress() {
 ## Ressources
 
 - Boris Fritscher - Professeur HE-Arc
-- Support de cours 643-1.1 Projet de technologie web - https://cyberlearn.hes-so.ch/
+- Support de cours 643-1.1 Projet de technologie web - https://cyberlearn.hes-so.ch/course/view.php?id=6912
 - Ressources Firefox - https://developer.mozilla.org/en-US/
+- Moteur de recherche - https://www.google.ch/
 - Bootstrap - https://getbootstrap.com/docs/5.1/
 - Grid system Bootstrap - https://getbootstrap.com/docs/4.0/layout/grid/
 - BscScan Accounts API - https://docs.bscscan.com/api-endpoints/accounts
