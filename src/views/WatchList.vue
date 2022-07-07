@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col text-start">
+        <div class="col-md-6 text-start">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -22,6 +22,8 @@
               Recents adds
             </label>
           </div>
+        </div>
+        <div class="col-md-6 text-start">
           <div class="form-check">
             <input
               class="form-check-input"
