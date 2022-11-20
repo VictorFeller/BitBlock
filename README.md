@@ -30,8 +30,8 @@ It is also possible to add the address to a watch list in order to analyze infor
 - Project must include a README file describing problems and lessons
 - Application could use axios to get external data
 
-##French bellow
-##Context
+## French bellow
+## Context
 
 Passionnés de la technologie blockchain et du concept de Web3, nous avons souhaité créer une application permettant de réaliser des recherches d'adresses basées sur la Binance Smart Chain (BSC) afin d'obtenir diverses informations sur ces dernières.
 
